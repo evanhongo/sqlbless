@@ -87,9 +87,18 @@ func Main() error {
 	args := flag.Args()
 
 	if len(args) < 1 {
-		flag.Usage()
+		var err error
+		args, err = getActiveSourceDetails()
+		if err != nil {
+			return err
+		}
+	}
+
+	if args[0] == "ls" || args[0] == "add" || args[0] == "src" {
+		handleCommand(args[0], args)
 		return nil
 	}
+
 	dbDialect, args, err := findDbDialect(args)
 	if err != nil {
 		return err

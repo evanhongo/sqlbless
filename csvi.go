@@ -127,7 +127,7 @@ func csvEdit(title string, ss *Session, validate func(*csvi.CellValidatedEvent) 
 	cfg := &csvi.Config{
 		Titles: []string{
 			toOneLine(title, titlePrefix, titleSuffix),
-			"\"c\": Apply changes & quit, \"q\": Discard changes & quit",
+			"\"r\": Edit the current cell, \"c\": Apply changes & quit, \"q\": Discard changes & quit",
 		},
 		KeyMap: map[string]func(*csvi.KeyEventArgs) (*csvi.CommandResult, error){
 			"c": func(app *csvi.KeyEventArgs) (*csvi.CommandResult, error) {

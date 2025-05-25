@@ -155,6 +155,22 @@ DRIVERNAME can be omitted when DATASOURCENAME contains DRIVERNAME.
 - The driver used is http://github.com/go-sql-driver/mysql
 - The `?parseTime=true&loc=Local` parameter is preset, but it can be overridden
 
+Source Management
+------------------
+
+config path is `~/.config/sqlbless/config.yml`
+
+```sh
+# List sources
+sqlbless ls
+# Add new source
+sqlbless add dev/my_pg postgres postgres://user:pswd@host:port/db 
+# Set active source
+sqlbless src dev/my_pg
+# And use active source
+sqlbless
+```
+
 Common Options
 --------------
 
